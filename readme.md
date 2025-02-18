@@ -8,10 +8,12 @@
 4. перейти в директорию куда надо установить парсер и ввести команду 
 
 `git clone https://github.com/ressiwage/WORK-avtoved-parser-2.git .`
+
 5. переименовать файл `config-sample.py` в `config.py` и вставить туда свои данные
 6. ввести команду 
 
 `pip install -r requirements.txt`
+
 7. ввести команду 
 
 `python3 orcestrator.py`
