@@ -7,6 +7,8 @@ def post(item):
     r = requests.post('https://api.vk.com/method/wall.post', data=item)
     if r.json().get('response') is not None and r.json()['response']['post_id'] is not None:
         return True
+    else:
+        raise Exception(f'Error while posting: {r.text}')
 def main(amount_of_posts=10, threshold=3600):
     '''if amount_of_posts = -1 then publish all the posts;
     threshold is in seconds'''
@@ -20,7 +22,7 @@ def main(amount_of_posts=10, threshold=3600):
     for item in database['items']:
         if item in posted:
             continue
-        c-=1
+        
         if c<0:
             continue
         
@@ -42,6 +44,7 @@ def main(amount_of_posts=10, threshold=3600):
             image_id = upload_image(database['items'][item]['image'], ses)
             wall_item['attachments'] = f'photo-{Config.group_id}_{image_id}'
         if post(wall_item):
+            c-=1
             database['last_post'] = p_date
             database['posted'].append(item)
             json.dump(database, open('db.json', 'w+', encoding='utf8'), ensure_ascii=False, indent=2)
