@@ -2,7 +2,7 @@ from auth import auth
 from config import Config 
 import json, hashlib, datetime
 def main(pages_amount=1):
-    from bs4 import BeautifulSoup
+    from bs4 import BeautifulSoup, element
     from config import PathTo
     ses = auth()
 
@@ -27,7 +27,10 @@ def main(pages_amount=1):
         for container in containers:
             if (post_link:=container.select_one(PathTo.post_link)) is not  None:
                 post_url = Config.base_url+post_link['href']
-                title = post_link.get_text()
+                title = ''
+                for child in post_link:
+                    if isinstance(child, element.NavigableString):
+                        title = child.get_text().strip()
             if (container_text:=container.select_one(PathTo.text_in_container)) is not None:
                 content = container_text
             text = content.get_text()
