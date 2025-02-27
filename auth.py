@@ -14,4 +14,4 @@ def auth():
     if 'LogOut' in response.text:
         return ses
     else:
-        raise Exception(response.status)
+        raise Exception(response.status_code, response.text)
