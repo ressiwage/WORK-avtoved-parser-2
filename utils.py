@@ -1,5 +1,5 @@
 import os, json
-from telegram import Bot, InputFile
+from telegram import Bot, InputFile, LinkPreviewOptions
 from datetime import datetime, timedelta
 import asyncio
 
@@ -27,11 +27,13 @@ async def send_tg_message(BOT_TOKEN, CHAT_ID, IMAGE_PATH, MESSAGE_TEXT, ):
                 chat_id=CHAT_ID,
                 photo=InputFile(photo_file),
                 caption=MESSAGE_TEXT,
+                
             )
     else:
         return await bot.send_message(
                 chat_id=CHAT_ID,
                 text=MESSAGE_TEXT,
+                disable_web_page_preview=True
             )
     
 def sync_db(database):

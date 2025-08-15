@@ -40,4 +40,5 @@ def main(threshold=3600):
         database['posted_tg'] = database.get('posted_tg', []) + [item]
         database['last_tg_post'] = datetime.datetime.now().timestamp()
         database = sync_db(database)
+        break
     return True
