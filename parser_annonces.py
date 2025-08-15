@@ -53,7 +53,7 @@ def main(pages_amount=1):
             hash_title = str(hashlib.md5(bytes(title, "utf-8")).hexdigest())
             items[hash_title] = {
                 'title':title,
-                'text':text,
+                'text':text.strip(),
                 'post_url':post_url,
                 'image':image
             }

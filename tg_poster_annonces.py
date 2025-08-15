@@ -25,7 +25,7 @@ def main(threshold=3600):
         if item in posted_tg:
             continue
 
-        if not datetime.datetime.now().timestamp() - database['last_tg_post']>=threshold:
+        if 0 and not datetime.datetime.now().timestamp() - database['last_tg_post']>=threshold:
             continue
 
         wall_item = {
