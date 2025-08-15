@@ -23,7 +23,7 @@ while True:
 
     log_on_err(parse_main)(pages_amount=Config.amount_of_pages)
 
-    # log_on_err(post_main)(amount_of_posts=Config.amount_of_posts)
+    log_on_err(post_main)(amount_of_posts=Config.amount_of_posts)
     log_on_err(tg_post_main)(threshold=Config.tg_threshold)
     
     print('останавливать МОЖНО, постинг закончился')    

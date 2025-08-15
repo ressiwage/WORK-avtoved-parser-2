@@ -37,7 +37,9 @@ def main(pages_amount=1):
             while '\t' in text:
                 text=text.replace('\t', '')
             while '\n' in text:
-                text = text.replace('\n', '')
+                text = text.replace('\n', ' ')
+            while '  ' in text:
+                text = text.replace('  ', ' ')
             image = None
             for a in content.select('a'):
                 if (img:=a.select_one('img')) is not None and img.get('src') is not None:
