@@ -18,6 +18,8 @@ class Config:
     amount_of_pages = 1 # сколько страниц парсить
     amount_of_posts = 10 # сколько постов постить за итерацию, -1 значит все что имеются
     interval_seconds = 1800 # через какой интервал запускать бота
+    tg_threshold = 1800 #интервал между постами в боте
+
     #то что ниже не менять!
     base_url = 'some-domen-on-xenforo'
     group_id = 000
@@ -26,3 +28,6 @@ class Config:
     at = ''
     protected_key = ''
     service_key = ''
+    CHAT_ID = ''      # ид чата канала
+    BOT_TOKEN = ''  # токен тг бота
+
